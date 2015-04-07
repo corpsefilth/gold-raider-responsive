@@ -68,7 +68,7 @@ var playState = {
 		
 		// Create 10 enemies with the 'enemy' image in the group
 		// The enemies are "dead" by default, so they are not visible in the game
-		this.enemies.createMultiple(15, 'enemy');
+		this.enemies.createMultiple(10, 'enemy');
 		
 		
 		// Display the coin
@@ -367,10 +367,11 @@ var playState = {
 		}
 		
 		// Initialize the enemy
+		game.physics.arcade.enable(enemy);
 		enemy.anchor.setTo(0.5, 1);
 		enemy.reset(game.world.centerX, 20);
 		enemy.body.gravity.y = 300;
-		enemy.body.velocity.x = 100 * Phaser.Math.randomSign();
+		enemy.body.velocity.x = 150 * Phaser.Math.randomSign();
 		enemy.body.bounce.x = 1;
 		//enemy.body.bounce.y = 1;
 		enemy.checkWorldBounds = true;
