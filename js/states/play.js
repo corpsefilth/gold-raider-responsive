@@ -330,7 +330,7 @@ var playState = {
 	updateCoinPosition: function() {
 		// Store all the possible coin positions in an array
 		var coinPosition = [
-		{x: 140, y: 60}, {x: 360, y: 60}, // Top row
+		{x: 140, y: 60}, {x: (game.width - 360), y: 60}, // Top row
 		{x: 60, y: 140}, {x: 440, y: 140}, // Middle row
 		{x: 130, y: 300}, {x: 370, y: 300} // Bottom row
 		];
