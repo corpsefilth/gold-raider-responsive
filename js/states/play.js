@@ -33,6 +33,10 @@ var playState = {
 		this.coinSound = game.add.audio('coin');
 		this.deadSound = game.add.audio('dead');
 		
+		// Create our wall group with Arcade Physics
+		this.walls = game.add.group();
+		this.walls.enableBody = true;
+		
 		// player
 		this.player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
 		
@@ -56,7 +60,7 @@ var playState = {
 		game.physics.arcade.enable(this.player);
 		
 		// Add vertical gravity to the player
-		this.player.body.gravity.y = 500;
+		this.player.body.gravity.y = 400;
 		
 		// Create an enemy group with Arcade physics
 		this.enemies = game.add.group();
@@ -211,8 +215,8 @@ var playState = {
 	
 	createWorld: function() {
 		// Create our wall group with Arcade Physics
-		this.walls = game.add.group();
-		this.walls.enableBody = true;
+		//this.walls = game.add.group();
+		//this.walls.enableBody = true;
 		
 		// divide game screen into 3 parts, used for wall length and positioning
 		var mlength = game.width/3;
@@ -365,7 +369,7 @@ var playState = {
 		// Initialize the enemy
 		enemy.anchor.setTo(0.5, 1);
 		enemy.reset(game.world.centerX, 20);
-		enemy.body.gravity.y = 500;
+		enemy.body.gravity.y = 300;
 		enemy.body.velocity.x = 100 * Phaser.Math.randomSign();
 		enemy.body.bounce.x = 1;
 		//enemy.body.bounce.y = 1;
