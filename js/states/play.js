@@ -64,7 +64,7 @@ var playState = {
 		
 		// Create 10 enemies with the 'enemy' image in the group
 		// The enemies are "dead" by default, so they are not visible in the game
-		this.enemies.createMultiple(10, 'enemy');
+		this.enemies.createMultiple(15, 'enemy');
 		
 		
 		// Display the coin
@@ -332,7 +332,7 @@ var playState = {
 		var coinPosition = [
 		{x: 140, y: 60}, {x: (game.width - 360), y: 60}, // Top row
 		{x: 60, y: 140}, {x: 440, y: 140}, // Middle row
-		{x: 130, y: 300}, {x: 370, y: 300} // Bottom row
+		{x: (game.height - 130), y: 300}, {x: (game.width - 130), y: (game.height - 300)} // Bottom row
 		];
 		
 		// Remove the current coin position from the array
@@ -353,7 +353,9 @@ var playState = {
 	// add enemy
 	addEnemy: function() {
 		// Get the first dead enemy of the group
-		var enemy = this.enemies.getFirstDead();
+		// var enemy = this.enemies.getFirstDead();
+		
+		var enemy = this.enemies.getFirstExists(false);
 		
 		// If there isn't any dead enemy, do nothing
 		if (!enemy) {
